@@ -1,0 +1,107 @@
+# CRM система для автодилера - монолитная архитектура на Django
+
+## Обзор проекта
+
+Проект представляет собой монолитное веб-приложение на Django с фронтендом на React + TailwindCSS. 
+Структура проекта организована в виде отдельных Django-приложений для каждого функционального модуля CRM.
+
+## Структура проекта
+
+```
+car_dealer_crm/
+├── docker/
+│   ├── docker-compose.yml         # Конфигурация Docker Compose
+│   ├── Dockerfile                 # Dockerfile для Python
+│   ├── Dockerfile.frontend        # Dockerfile для фронтенда
+│   └── nginx/                     # Конфигурация Nginx
+├── backend/
+│   ├── car_dealer_crm/            # Основной проект Django
+│   │   ├── __init__.py
+│   │   ├── settings.py            # Настройки проекта
+│   │   ├── urls.py                # Маршрутизация URL
+│   │   ├── wsgi.py                # WSGI приложение
+│   │   └── asgi.py                # ASGI приложение
+│   ├── customers/                 # Приложение для работы с клиентами
+│   │   ├── migrations/
+│   │   ├── api/                   # API эндпоинты
+│   │   ├── models.py              # Модели данных
+│   │   ├── serializers.py         # Сериализаторы для API
+│   │   └── views.py               # Обработчики представлений
+│   ├── vehicles/                  # Приложение для работы с автомобилями
+│   │   ├── migrations/
+│   │   ├── api/
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   └── views.py
+│   ├── sales/                     # Приложение для работы с продажами
+│   │   ├── migrations/
+│   │   ├── api/
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   └── views.py
+│   ├── marketing/                 # Приложение для маркетинга
+│   │   ├── migrations/
+│   │   ├── api/
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   └── views.py
+│   ├── service/                   # Приложение для сервисного обслуживания
+│   │   ├── migrations/
+│   │   ├── api/
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   └── views.py
+│   ├── finance/                   # Приложение для финансов
+│   │   ├── migrations/
+│   │   ├── api/
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   └── views.py
+│   ├── analytics/                 # Приложение для аналитики
+│   │   ├── migrations/
+│   │   ├── api/
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   └── views.py
+│   ├── employees/                 # Приложение для управления сотрудниками
+│   │   ├── migrations/
+│   │   ├── api/
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   └── views.py
+│   ├── core/                      # Ядро приложения, общие компоненты
+│   │   ├── migrations/
+│   │   ├── api/
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   └── views.py
+│   ├── manage.py                  # Утилита управления Django
+│   └── requirements.txt           # Зависимости Python
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/            # React компоненты
+│   │   │   ├── customers/
+│   │   │   ├── vehicles/
+│   │   │   ├── sales/
+│   │   │   ├── marketing/
+│   │   │   ├── service/
+│   │   │   ├── finance/
+│   │   │   ├── analytics/
+│   │   │   ├── employees/
+│   │   │   └── common/
+│   │   ├── pages/                 # Страницы приложения
+│   │   ├── services/              # Сервисы API
+│   │   ├── store/                 # Redux store
+│   │   ├── utils/                 # Утилиты
+│   │   ├── App.js                 # Основной компонент
+│   │   └── index.js               # Точка входа
+│   ├── package.json               # NPM-зависимости
+│   ├── tailwind.config.js         # Конфигурация TailwindCSS
+│   └── postcss.config.js          # Конфигурация PostCSS
+└── README.md                      # Документация проекта
+```
+
+## Основные файлы для запуска проекта
+
+Ниже приведены основные файлы, необходимые для запуска проекта:
